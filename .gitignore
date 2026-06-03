@@ -1,0 +1,10 @@
+# Source product photos (large raw files, not needed in repo)
+товары/
+
+# WhatsApp screenshots
+WhatsApp Image*.jpeg
+WhatsApp Image*.jpg
+
+# Python cache
+__pycache__/
+*.pyc
