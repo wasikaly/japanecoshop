@@ -416,7 +416,7 @@ function orderCart() {
     return `${i + 1}. ${p.brand} — ${p.name}${qty > 1 ? ` (${qty} шт.)` : ''}`;
   }).filter(Boolean);
   const msg = encodeURIComponent(`Здравствуйте! Хочу заказать:\n${lines.join('\n')}\n\nПожалуйста, подтвердите наличие и стоимость.`);
-  window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank');
+  window.open(`https://wa.me/77778223071?text=${msg}`, '_blank');
 }
 
 // ========== RENDER PRODUCTS ==========
@@ -504,7 +504,7 @@ function openModal(id) {
       <button class="modal-cart-btn ${inCart ? 'in-cart' : ''}" id="modalCartBtn" onclick="modalAddToCart(${p.id})">
         🛒 ${inCart ? `В корзине (${inCart} шт.)` : 'Добавить в корзину'}
       </button>
-      <a href="https://api.whatsapp.com/send?text=${waMsg}" target="_blank" class="modal-order">
+      <a href="https://wa.me/77778223071?text=${waMsg}" target="_blank" class="modal-order">
         ${waIconSvg} Заказать сейчас
       </a>
     </div>`;
@@ -529,7 +529,7 @@ function closeModal() {
 
 function orderProduct(name) {
   const waMsg = encodeURIComponent(`Здравствуйте! Хочу заказать: ${name}`);
-  window.open(`https://api.whatsapp.com/send?text=${waMsg}`, '_blank');
+  window.open(`https://wa.me/77778223071?text=${waMsg}`, '_blank');
 }
 
 function filterCat(cat) {
