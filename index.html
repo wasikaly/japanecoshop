@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Japan Eco Shop — Японские товары в Алматы</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- SAKURA PETALS -->
+<div class="sakura-container" id="sakuraContainer"></div>
+
+<!-- ========== HEADER ========== -->
+<header class="header" id="header">
+  <div class="header-inner container">
+    <a href="#home" class="logo-link">
+      <img src="images/logojapan.jpg" alt="Japan Eco Shop" class="logo-img" />
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#home" class="nav-link">Главная</a>
+      <a href="#about" class="nav-link">О нас</a>
+      <a href="#catalog" class="nav-link">Каталог</a>
+      <a href="#gallery" class="nav-link">Магазин</a>
+      <a href="#contact" class="nav-link">Контакты</a>
+    </nav>
+    <a href="https://wa.me/77778223071" target="_blank" class="btn-wa--header">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.875L.057 23.476a.5.5 0 0 0 .608.62l5.701-1.493A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.005-1.37l-.358-.214-3.724.975.994-3.625-.234-.373A9.776 9.776 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818z"/></svg>
+      Заказать
+    </a>
+    <button class="cart-toggle-btn" id="cartToggle" onclick="toggleCart()" aria-label="Корзина">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-orb hero-orb--1"></div>
+  <div class="hero-orb hero-orb--2"></div>
+  <div class="container hero-content">
+    <div class="hero-text">
+      <span class="hero-badge">🇯🇵 Прямо из Японии</span>
+      <h1 class="hero-title">Японские<br/><em class="highlight">Эко Товары</em><br/><span class="hero-title-sub">в Алматы</span></h1>
+      <p class="hero-subtitle">Оригинальная косметика, средства по уходу за волосами и телом, бытовая химия от ведущих японских брендов. Доставка по Алматы.</p>
+      <div class="hero-actions">
+        <a href="#catalog" class="btn btn--primary">Смотреть каталог</a>
+        <a href="https://wa.me/77778223071" target="_blank" class="btn btn--ghost">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.875L.057 23.476a.5.5 0 0 0 .608.62l5.701-1.493A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.005-1.37l-.358-.214-3.724.975.994-3.625-.234-.373A9.776 9.776 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <img src="images/store4.jpg" alt="Japan Eco Shop products" class="hero-img" />
+        <div class="hero-badge-float">
+          <span>🌸</span>
+          <p>Японское качество</p>
+        </div>
+        <div class="hero-badge-float hero-badge-float--2">
+          <span>✅</span>
+          <p>100% Оригинал</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#F5F3F0"/></svg>
+  </div>
+</section>
+
+<!-- ========== STATS STRIP ========== -->
+<section class="stats-strip">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-box" data-aos="fade-up">
+        <div class="stat-number"><span class="counter" data-target="124">0</span>+</div>
+        <div class="stat-label-text">Товаров в наличии</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-number"><span class="counter" data-target="50">0</span>+</div>
+        <div class="stat-label-text">Японских брендов</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
+        <div class="stat-number">100%</div>
+        <div class="stat-label-text">Оригинальные товары</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-number">🇯🇵</div>
+        <div class="stat-label-text">Прямые поставки</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CATEGORIES STRIP ========== -->
+<section class="categories-strip">
+  <div class="container">
+    <div class="cat-grid">
+      <button class="cat-card active" data-cat="all">
+        <span class="cat-icon">🛍️</span>
+        <span>Все товары</span>
+      </button>
+      <button class="cat-card" data-cat="hair">
+        <span class="cat-icon">💇</span>
+        <span>Волосы</span>
+      </button>
+      <button class="cat-card" data-cat="face">
+        <span class="cat-icon">✨</span>
+        <span>Лицо</span>
+      </button>
+      <button class="cat-card" data-cat="body">
+        <span class="cat-icon">🧴</span>
+        <span>Тело</span>
+      </button>
+      <button class="cat-card" data-cat="laundry">
+        <span class="cat-icon">🧺</span>
+        <span>Бытовая химия</span>
+      </button>
+      <button class="cat-card" data-cat="dental">
+        <span class="cat-icon">🦷</span>
+        <span>Зубная забота</span>
+      </button>
+      <button class="cat-card" data-cat="vitamins">
+        <span class="cat-icon">💊</span>
+        <span>Витамины</span>
+      </button>
+      <button class="cat-card" data-cat="other">
+        <span class="cat-icon">🏠</span>
+        <span>Прочее</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text" data-aos="fade-right">
+        <span class="section-badge">О нас</span>
+        <h2 class="section-title">Japan Eco Shop —<br/><em class="highlight">Ваш магазин</em><br/>японских товаров</h2>
+        <p>Мы специализируемся на поставке оригинальных японских товаров: косметика, средства по уходу за волосами, витамины, бытовая химия. Все товары — подлинные, прямые поставки из Японии.</p>
+        <p>Наш магазин расположен в Алматы. Широкий ассортимент от ведущих японских брендов: Shiseido, KAO, Lion, KOSE, &Honey, Biore и многих других.</p>
+        <div class="about-features">
+          <div class="feature"><span class="feature-icon">✅</span><div><strong>100% оригинал</strong><p>Только подлинные японские товары</p></div></div>
+          <div class="feature"><span class="feature-icon">🚚</span><div><strong>Быстрая доставка</strong><p>По всему Алматы</p></div></div>
+          <div class="feature"><span class="feature-icon">💰</span><div><strong>Оптовые цены</strong><p>Специальные условия для оптовиков</p></div></div>
+          <div class="feature"><span class="feature-icon">🌸</span><div><strong>200+ товаров</strong><p>Широкий ассортимент</p></div></div>
+        </div>
+        <a href="https://wa.me/77778223071" target="_blank" class="btn btn--primary">Связаться с нами</a>
+      </div>
+      <div class="about-imgs" data-aos="fade-left">
+        <img src="images/store2.jpg" alt="Магазин Japan Eco Shop" class="about-img about-img--main" />
+        <img src="images/store1.jpg" alt="Японские эко товары вывеска" class="about-img about-img--secondary" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CATALOG ========== -->
+<section class="catalog" id="catalog">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-badge">Каталог</span>
+      <h2 class="section-title">Товары <em class="highlight">в наличии</em></h2>
+      <p class="section-sub">Оригинальные японские товары с розничными и оптовыми ценами</p>
+    </div>
+    <div class="catalog-search" data-aos="fade-up">
+      <input type="text" id="searchInput" class="search-input" placeholder="Поиск по названию или бренду..." />
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+    <div class="catalog-cta" data-aos="fade-up">
+      <p>Не нашли нужный товар? Мы поможем!</p>
+      <a href="https://wa.me/77778223071" target="_blank" class="btn btn--primary">Написать в WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BRANDS ========== -->
+<section class="brands">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-badge">Бренды</span>
+      <h2 class="section-title">Лучшие <em class="highlight">бренды</em> Японии</h2>
+    </div>
+  </div>
+  <div class="brands-track-wrap">
+    <div class="brands-track">
+      <div class="brand-item">Shiseido</div>
+      <div class="brand-item">KAO</div>
+      <div class="brand-item">Lion</div>
+      <div class="brand-item">KOSE</div>
+      <div class="brand-item">&Honey</div>
+      <div class="brand-item">Biore</div>
+      <div class="brand-item">Kracie</div>
+      <div class="brand-item">DHC</div>
+      <div class="brand-item">Orihiro</div>
+      <div class="brand-item">Salon Link</div>
+      <div class="brand-item">Japan Gals</div>
+      <div class="brand-item">Ebisu</div>
+      <div class="brand-item">Mitsuei</div>
+      <div class="brand-item">Joy</div>
+      <div class="brand-item">FINO</div>
+      <div class="brand-item">Senka</div>
+      <div class="brand-item">Shiseido</div>
+      <div class="brand-item">KAO</div>
+      <div class="brand-item">Lion</div>
+      <div class="brand-item">KOSE</div>
+      <div class="brand-item">&Honey</div>
+      <div class="brand-item">Biore</div>
+      <div class="brand-item">Kracie</div>
+      <div class="brand-item">DHC</div>
+      <div class="brand-item">Orihiro</div>
+      <div class="brand-item">Salon Link</div>
+      <div class="brand-item">Japan Gals</div>
+      <div class="brand-item">Ebisu</div>
+      <div class="brand-item">Mitsuei</div>
+      <div class="brand-item">Joy</div>
+      <div class="brand-item">FINO</div>
+      <div class="brand-item">Senka</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROMISE SECTION ========== -->
+<section class="promise">
+  <div class="container">
+    <div class="promise-grid">
+      <div class="promise-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="promise-icon">🎌</div>
+        <h3>Прямо из Японии</h3>
+        <p>Прямые поставки без посредников. Только оригинальная продукция ведущих японских производителей.</p>
+      </div>
+      <div class="promise-card" data-aos="fade-up" data-aos-delay="120">
+        <div class="promise-icon">🔬</div>
+        <h3>Японские технологии</h3>
+        <p>Инновационные формулы с гиалуроновой кислотой, коллагеном, коэнзимом Q10 и натуральными экстрактами.</p>
+      </div>
+      <div class="promise-card" data-aos="fade-up" data-aos-delay="240">
+        <div class="promise-icon">💬</div>
+        <h3>Поддержка 24/7</h3>
+        <p>Консультируем через WhatsApp и Instagram. Помогаем выбрать подходящий продукт для вашего типа кожи.</p>
+      </div>
+      <div class="promise-card" data-aos="fade-up" data-aos-delay="360">
+        <div class="promise-icon">🏷️</div>
+        <h3>Лучшие цены</h3>
+        <p>Оптовые и розничные цены в тенге. Специальные условия для постоянных клиентов и оптовиков.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALLERY ========== -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-badge">Наш магазин</span>
+      <h2 class="section-title">Посетите нас <em class="highlight">в Алматы</em></h2>
+      <p class="section-sub">ул. Кабанбай батыра, 122 — просторный магазин с широким ассортиментом</p>
+    </div>
+    <div class="gallery-grid" data-aos="fade-up">
+      <div class="gallery-item gallery-item--large">
+        <img src="images/store3.jpg" alt="Ассортимент магазина" />
+        <div class="gallery-overlay"><span>Ассортимент товаров</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/store4.jpg" alt="Полки магазина" />
+        <div class="gallery-overlay"><span>Biore Collection</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/store5.jpg" alt="Biore продукты" />
+        <div class="gallery-overlay"><span>Пенки для умывания</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/store6.jpg" alt="Collagen и Biore" />
+        <div class="gallery-overlay"><span>Коллаген и уход</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/store1.jpg" alt="Вывеска магазина" />
+        <div class="gallery-overlay"><span>Japan Eco Shop</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/store2.jpg" alt="Japan Eco Shop" />
+        <div class="gallery-overlay"><span>Наш магазин</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info" data-aos="fade-right">
+        <span class="section-badge">Контакты</span>
+        <h2 class="section-title">Свяжитесь <em class="highlight">с нами</em></h2>
+        <p>Мы всегда рады помочь с выбором товаров и ответить на ваши вопросы.</p>
+        <div class="contact-items">
+          <a href="https://wa.me/77778223071" target="_blank" class="contact-item">
+            <div class="contact-icon contact-icon--wa">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.875L.057 23.476a.5.5 0 0 0 .608.62l5.701-1.493A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.005-1.37l-.358-.214-3.724.975.994-3.625-.234-.373A9.776 9.776 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818z"/></svg>
+            </div>
+            <div><strong>WhatsApp</strong><p>Заказать или задать вопрос</p></div>
+          </a>
+          <a href="https://www.instagram.com/japanecoshop.kz/" target="_blank" class="contact-item">
+            <div class="contact-icon contact-icon--ig">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </div>
+            <div><strong>Instagram</strong><p>@japanecoshop.kz</p></div>
+          </a>
+          <div class="contact-item">
+            <div class="contact-icon contact-icon--loc">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div><strong>Адрес</strong><p>ул. Кабанбай батыра, 122, Алматы</p></div>
+          </div>
+          <a href="https://go.2gis.com/gCjQ1" target="_blank" class="contact-item">
+            <div class="contact-icon contact-icon--2gis">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </div>
+            <div><strong>Найти на 2ГИС</strong><p>Открыть маршрут и карту</p></div>
+          </a>
+        </div>
+        <div class="contact-social">
+          <a href="https://www.instagram.com/japanecoshop.kz/" target="_blank" class="social-btn social-btn--ig">Instagram</a>
+          <a href="https://wa.me/77778223071" target="_blank" class="social-btn social-btn--wa">WhatsApp</a>
+        </div>
+      </div>
+      <div class="contact-cta-box" data-aos="fade-left">
+        <div class="cta-box">
+          <img src="images/logojapan.jpg" alt="Japan Eco Shop" class="cta-logo" />
+          <h3>Сделайте заказ прямо сейчас</h3>
+          <p>Напишите нам в WhatsApp — мы поможем подобрать нужные товары и оформим заказ с доставкой!</p>
+          <a href="https://wa.me/77778223071" target="_blank" class="btn--wa-big">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.875L.057 23.476a.5.5 0 0 0 .608.62l5.701-1.493A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.005-1.37l-.358-.214-3.724.975.994-3.625-.234-.373A9.776 9.776 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818z"/></svg>
+            Написать в WhatsApp
+          </a>
+          <div class="cta-note">Работаем каждый день</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="images/logojapan.jpg" alt="Japan Eco Shop" class="footer-logo" />
+      <p>Оригинальные японские товары в Алматы. Косметика, уход за волосами, витамины, бытовая химия.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/japanecoshop.kz/" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+        <a href="https://wa.me/77778223071" target="_blank" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.875L.057 23.476a.5.5 0 0 0 .608.62l5.701-1.493A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.005-1.37l-.358-.214-3.724.975.994-3.625-.234-.373A9.776 9.776 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Каталог</h4>
+      <a href="#catalog" onclick="filterCat('hair')">Уход за волосами</a>
+      <a href="#catalog" onclick="filterCat('face')">Уход за лицом</a>
+      <a href="#catalog" onclick="filterCat('body')">Уход за телом</a>
+      <a href="#catalog" onclick="filterCat('laundry')">Бытовая химия</a>
+      <a href="#catalog" onclick="filterCat('vitamins')">Витамины</a>
+    </div>
+    <div class="footer-links">
+      <h4>Информация</h4>
+      <a href="#about">О магазине</a>
+      <a href="#gallery">Фото магазина</a>
+      <a href="#contact">Контакты</a>
+      <a href="https://www.instagram.com/japanecoshop.kz/" target="_blank">Instagram</a>
+    </div>
+    <div class="footer-links">
+      <h4>Контакты</h4>
+      <a href="https://wa.me/77778223071" target="_blank">WhatsApp заказ</a>
+      <a href="https://www.instagram.com/japanecoshop.kz/" target="_blank">@japanecoshop.kz</a>
+      <a href="https://go.2gis.com/gCjQ1" target="_blank">ул. Кабанбай батыра, 122</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2026 Japan Eco Shop. Все права защищены. Японские товары в Алматы.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WA button -->
+<a href="https://wa.me/77778223071" target="_blank" class="float-wa" aria-label="Написать в WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.875L.057 23.476a.5.5 0 0 0 .608.62l5.701-1.493A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.005-1.37l-.358-.214-3.724.975.994-3.625-.234-.373A9.776 9.776 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818z"/></svg>
+</a>
+
+<!-- Cart Overlay & Drawer -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header-row">
+    <h3>🛒 Корзина</h3>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty">
+      <div class="cart-empty-icon">🛒</div>
+      <p>Корзина пуста</p>
+      <span class="cart-empty-sub">Добавьте товары из каталога</span>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span>Итого:</span>
+      <strong id="cartTotal">0 ₸</strong>
+    </div>
+    <button class="cart-order-btn" id="cartOrderBtn" onclick="orderCart()" disabled>
+      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.875L.057 23.476a.5.5 0 0 0 .608.62l5.701-1.493A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.005-1.37l-.358-.214-3.724.975.994-3.625-.234-.373A9.776 9.776 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818z"/></svg>
+      Заказать в WhatsApp
+    </button>
+  </div>
+</div>
+
+<!-- Product Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
